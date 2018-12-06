@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 
 import { connect } from "react-redux";
+import { addGroceryById } from "../actions";
 
 class Grocery extends Component {
   render() {
@@ -11,7 +12,11 @@ class Grocery extends Component {
         <ul className="list-group">
           {this.props.grocery.map(item => {
             return (
-              <li key={item.id} className="list-group-item">
+              <li
+                key={item.id}
+                className="list-group-item"
+                onClick={() => this.props.addGroceryById(item.id)}
+              >
                 <b>{item.name}</b> -{" "}
                 <span className="label label-info"> €{item.cost}</span> -{" "}
                 <span className="label label-warning">
@@ -35,5 +40,5 @@ function mapStateToProps(state) {
 }
 export default connect(
   mapStateToProps,
-  null
+  { addGroceryById }
 )(Grocery);
