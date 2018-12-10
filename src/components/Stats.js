@@ -1,20 +1,46 @@
 import React, { Component } from "react";
 
+import { connect } from "react-redux";
+
 class Stats extends Component {
+  cost() {
+    let totalCost = 0;
+    this.props.shoppingBag.forEach(item => (totalCost += item.cost));
+    return totalCost;
+  }
+  calories() {
+    let totalCalories = 0;
+    this.props.shoppingBag.forEach(item => (totalCalories += item.calories));
+    return totalCalories;
+  }
+  weight() {
+    let totalWeight = 0;
+    this.props.shoppingBag.forEach(item => (totalWeight += item.weight));
+    return totalWeight;
+  }
+
   render() {
+    console.log("from the stats", this.props);
     return (
       <div className="col-md-4">
         <h2 className="text-center">Stats Items</h2>
         <ul className="list-group">
-          <li className="list-group-item">Cras justo odio</li>
-          <li className="list-group-item">Dapibus ac facilisis in</li>
-          <li className="list-group-item">Morbi leo risus</li>
-          <li className="list-group-item">Porta ac consectetur ac</li>
-          <li className="list-group-item">Vestibulum at eros</li>
+          <li className="list-group-item">Cost - ${this.cost()}</li>
+          <li className="list-group-item">Calories - {this.calories()}kcal</li>
+          <li className="list-group-item">Weight - {this.weight()}mg</li>
         </ul>
       </div>
     );
   }
 }
 
-export default Stats;
+function mapStateToProps(state) {
+  console.log(state);
+  return {
+    shoppingBag: state.shoppingBag
+  };
+}
+export default connect(
+  mapStateToProps,
+  null
+)(Stats);
