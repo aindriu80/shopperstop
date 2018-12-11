@@ -20,7 +20,6 @@ class Stats extends Component {
   }
 
   render() {
-    console.log("from the stats", this.props);
     return (
       <div className="col-md-4">
         <h2 className="text-center">Stats Items</h2>
@@ -35,7 +34,6 @@ class Stats extends Component {
 }
 
 function mapStateToProps(state) {
-  console.log(state);
   return {
     shoppingBag: state.shoppingBag
   };

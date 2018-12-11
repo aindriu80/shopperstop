@@ -3,11 +3,9 @@ import { connect } from "react-redux";
 import { removeGroceryById } from "../actions";
 
 class ShoppingBag extends Component {
-  render() {
-    console.log("ShoppingBag props", this.props);
-    return (
-      <div className="col-md-4">
-        <h2 className="text-center">ShoppingBag Items</h2>
+  displayShoppingBag() {
+    if (this.props.shoppingBag.length > 0) {
+      return (
         <ul className="list-group">
           {this.props.shoppingBag.map(item => {
             return (
@@ -26,13 +24,27 @@ class ShoppingBag extends Component {
             );
           })}
         </ul>
+      );
+    } else {
+      return (
+        <ul className="list-group">
+          <li className="list-group-item">Please add some items to the bag</li>
+        </ul>
+      );
+    }
+  }
+
+  render() {
+    return (
+      <div className="col-md-4">
+        <h2 className="text-center">ShoppingBag Items</h2>
+        {this.displayShoppingBag()}
       </div>
     );
   }
 }
 
 function mapStateToProps(state) {
-  console.log(state);
   return {
     shoppingBag: state.shoppingBag
   };

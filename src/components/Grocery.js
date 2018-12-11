@@ -5,7 +5,6 @@ import { addGroceryById } from "../actions";
 
 class Grocery extends Component {
   render() {
-    console.log("this.props", this.props);
     return (
       <div className="col-md-4">
         <h2 className="text-center">Grocery Items</h2>
@@ -33,7 +32,6 @@ class Grocery extends Component {
 }
 
 function mapStateToProps(state) {
-  console.log(state);
   return {
     grocery: state.grocery
   };

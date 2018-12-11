@@ -12,3 +12,21 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.grocery-bg {
+  background-color: #61a8c4;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.shopping-bag-bg {
+  background-color: #e4f1fe;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.stats-bg {
+  background-color: #f2f1ef;
+  margin-left: 10px;
+  margin-right: 10px;
+}
