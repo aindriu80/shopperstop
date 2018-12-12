@@ -3,6 +3,8 @@ import Grocery from "./components/Grocery";
 import ShoppingBag from "./components/ShoppingBag";
 import Stats from "./components/Stats";
 
+import PocketMoney from "./components/PocketMoney";
+
 class App extends Component {
   render() {
     return (
@@ -13,7 +15,9 @@ class App extends Component {
             <p className="lead">Where you can get your daily products</p>
           </div>
         </div>
+
         <div className="row">
+          <PocketMoney />
           <Grocery />
           <ShoppingBag />
           <Stats />

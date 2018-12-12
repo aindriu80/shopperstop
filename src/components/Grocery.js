@@ -32,6 +32,7 @@ class Grocery extends Component {
 }
 
 function mapStateToProps(state) {
+  // console.log(state);
   return {
     grocery: state.grocery
   };
