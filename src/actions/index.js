@@ -20,7 +20,7 @@ export function removeGroceryById(id) {
   return action;
 }
 
-export function addPocketMoney(id) {
+export function addPocketMoneyById(id) {
   const action = {
     type: ADD_POCKET_MONEY,
     id
@@ -28,7 +28,7 @@ export function addPocketMoney(id) {
   return action;
 }
 
-export function removePocketMoney(id) {
+export function removePocketMoneyById(id) {
   const action = {
     type: REMOVE_POCKET_MONEY,
     id

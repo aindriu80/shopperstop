@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { removeGroceryById } from "../actions";
+import { addPocketMoneyById, removeGroceryById } from "../actions";
 
 class ShoppingBag extends Component {
   displayShoppingBag() {
@@ -12,7 +12,10 @@ class ShoppingBag extends Component {
               <li
                 key={item.id}
                 className="list-group-item"
-                onClick={() => this.props.removeGroceryById(item.id)}
+                onClick={() => {
+                  this.props.removeGroceryById(item.id);
+                  this.props.addPocketMoneyById(item.id);
+                }}
               >
                 <b>{item.name}</b> -{" "}
                 <span className="label label-info"> €{item.cost}</span> -{" "}
@@ -51,5 +54,5 @@ function mapStateToProps(state) {
 }
 export default connect(
   mapStateToProps,
-  { removeGroceryById }
+  { addPocketMoneyById, removeGroceryById }
 )(ShoppingBag);

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
 import { connect } from "react-redux";
-import { addGroceryById } from "../actions";
+import { addGroceryById, removePocketMoneyById } from "../actions";
 
 class Grocery extends Component {
   render() {
@@ -14,7 +14,10 @@ class Grocery extends Component {
               <li
                 key={item.id}
                 className="list-group-item"
-                onClick={() => this.props.addGroceryById(item.id)}
+                onClick={() => {
+                  this.props.addGroceryById(item.id);
+                  this.props.removePocketMoneyById(item.id);
+                }}
               >
                 <b>{item.name}</b> -{" "}
                 <span className="label label-info"> €{item.cost}</span> -{" "}
@@ -39,5 +42,5 @@ function mapStateToProps(state) {
 }
 export default connect(
   mapStateToProps,
-  { addGroceryById }
+  { addGroceryById, removePocketMoneyById }
 )(Grocery);
